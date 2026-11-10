@@ -1,3 +1,55 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#123b5d"><meta name="description" content="Fish Business customer order form"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>Fish Business Orders</title><style>*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#f3f6fa;color:#243447}header{background:#123b5d;color:white;padding:18px max(20px,env(safe-area-inset-left));}header h1{font-size:20px;margin:0}header p{margin:5px 0 0;color:#d7e8f5;font-size:13px}.shell{max-width:650px;margin:18px auto;padding:0 14px 30px}.frame{width:100%;height:calc(100dvh - 135px);min-height:650px;border:0;border-radius:14px;background:white;box-shadow:0 3px 15px #0001}.install{display:none;margin:0 auto 14px;padding:11px 16px;border:0;border-radius:9px;background:#1f4e78;color:white;font-weight:bold}.hint{text-align:center;color:#657487;font-size:12px;margin:9px 0 0}@media(max-width:600px){.shell{margin:12px auto;padding:0 10px}.frame{height:calc(100dvh - 115px);min-height:620px;border-radius:10px}header{padding:14px 16px}}@media(display-mode:standalone){header p{display:none}}</style></head>
-<body><header><h1>🐟 Fish Business Orders</h1><p>Customer order form</p></header><main class="shell"><button id="install" class="install">Install Fish Business Orders</button><iframe class="frame" title="Customer order form" src="https://script.google.com/macros/s/AKfycbywDmm3GE43_-6B1FZGVL3X5_Upod-7N0n-ubz2bCzGDbb0GuC713xenvdHPaPjMguuzg/exec" allow="clipboard-read; clipboard-write"></iframe><p class="hint">Orders are securely submitted through the Fish Business order system.</p></main><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(console.error));}let deferredPrompt;const installBtn=document.getElementById('install');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBtn.style.display='block';});installBtn.addEventListener('click',async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installBtn.style.display='none';});window.addEventListener('appinstalled',()=>installBtn.style.display='none');</script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123b5d">
+  <meta name="description" content="Open the Fish Business customer order form.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <title>Fish Business Orders</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #f3f6fa; color: #243447; display: grid; place-items: center; padding: max(22px, env(safe-area-inset-top)) 18px max(22px, env(safe-area-inset-bottom)); }
+    main { width: 100%; max-width: 440px; background: #fff; border-radius: 22px; padding: 30px 24px; text-align: center; box-shadow: 0 8px 30px #102b4418; }
+    .logo { width: 92px; height: 92px; display: block; margin: 0 auto 18px; border-radius: 22px; }
+    h1 { color: #123b5d; font-size: 25px; margin: 0 0 8px; }
+    .intro { color: #607286; line-height: 1.5; margin: 0 auto 24px; max-width: 330px; }
+    .open { display: block; width: 100%; padding: 16px 18px; border-radius: 12px; background: #1f4e78; color: white; text-decoration: none; font-weight: 700; font-size: 17px; }
+    .open:active { transform: translateY(1px); }
+    .install { display: none; width: 100%; margin-top: 12px; padding: 13px 16px; border: 1px solid #cbd6e2; border-radius: 12px; background: #fff; color: #1f4e78; font-weight: 700; font-size: 15px; }
+    .help { color: #758396; font-size: 12px; line-height: 1.5; margin: 18px 0 0; }
+    footer { color: #91a0af; font-size: 11px; margin-top: 22px; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="./icons/icon-192.png" alt="Fish Business Orders icon">
+    <h1>Fish Business Orders</h1>
+    <p class="intro">Welcome! Tap below to open the customer order form and submit a fish order.</p>
+    <a class="open" href="https://script.google.com/macros/s/AKfycbywDmm3GE43_-6B1FZGVL3X5_Upod-7N0n-ubz2bCzGDbb0GuC713xenvdHPaPjMguuzg/exec" target="_blank" rel="noopener">Open Customer Order Form</a>
+    <button class="install" id="installButton" type="button">Install Fish Business Orders</button>
+    <p class="help">The order form opens securely through Google Apps Script. An internet connection is required to place an order.</p>
+    <footer>Fish Business · Customer Orders</footer>
+  </main>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(err => console.error('Service worker registration failed:', err)));
+    }
+    let installPrompt;
+    const installButton = document.getElementById('installButton');
+    window.addEventListener('beforeinstallprompt', event => {
+      event.preventDefault(); installPrompt = event; installButton.style.display = 'block';
+    });
+    installButton.addEventListener('click', async () => {
+      if (!installPrompt) return;
+      installPrompt.prompt(); await installPrompt.userChoice; installPrompt = null; installButton.style.display = 'none';
+    });
+    window.addEventListener('appinstalled', () => installButton.style.display = 'none');
+  </script>
+</body>
+</html>

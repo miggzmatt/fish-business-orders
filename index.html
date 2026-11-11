@@ -1,55 +1,149 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#123b5d">
-  <meta name="description" content="Open the Fish Business customer order form.">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Fish Business customer ordering app.">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./icons/icon-192.png" type="image/png">
+  <link rel="icon" href="./icons/icon-192.png">
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
   <title>Fish Business Orders</title>
+
   <style>
-    :root { color-scheme: light; font-family: Arial, sans-serif; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; background: #f3f6fa; color: #243447; display: grid; place-items: center; padding: max(22px, env(safe-area-inset-top)) 18px max(22px, env(safe-area-inset-bottom)); }
-    main { width: 100%; max-width: 440px; background: #fff; border-radius: 22px; padding: 30px 24px; text-align: center; box-shadow: 0 8px 30px #102b4418; }
-    .logo { width: 92px; height: 92px; display: block; margin: 0 auto 18px; border-radius: 22px; }
-    h1 { color: #123b5d; font-size: 25px; margin: 0 0 8px; }
-    .intro { color: #607286; line-height: 1.5; margin: 0 auto 24px; max-width: 330px; }
-    .open { display: block; width: 100%; padding: 16px 18px; border-radius: 12px; background: #1f4e78; color: white; text-decoration: none; font-weight: 700; font-size: 17px; }
-    .open:active { transform: translateY(1px); }
-    .install { display: none; width: 100%; margin-top: 12px; padding: 13px 16px; border: 1px solid #cbd6e2; border-radius: 12px; background: #fff; color: #1f4e78; font-weight: 700; font-size: 15px; }
-    .help { color: #758396; font-size: 12px; line-height: 1.5; margin: 18px 0 0; }
-    footer { color: #91a0af; font-size: 11px; margin-top: 22px; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+      color: #243447;
+    }
+
+    header {
+      background: #123b5d;
+      color: white;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .tagline {
+      font-size: 12px;
+      opacity: .8;
+      margin-top: 4px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px 16px;
+    }
+
+    .welcome {
+      margin-bottom: 20px;
+    }
+
+    .welcome h1 {
+      color: #123b5d;
+      font-size: 25px;
+      margin: 0 0 8px;
+    }
+
+    .welcome p {
+      color: #64748b;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .form-card {
+      background: white;
+      border: 1px solid #e1e7ee;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px #102b440c;
+    }
+
+    .form-heading {
+      padding: 17px 20px;
+      border-bottom: 1px solid #e8edf2;
+      font-weight: bold;
+      color: #123b5d;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 1500px;
+      border: 0;
+      background: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #8290a0;
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 16px; }
+      .container { padding: 20px 12px; }
+      .welcome h1 { font-size: 22px; }
+      iframe { height: 1650px; }
+    }
   </style>
 </head>
+
 <body>
-  <main>
-    <img class="logo" src="./icons/icon-192.png" alt="Fish Business Orders icon">
-    <h1>Fish Business Orders</h1>
-    <p class="intro">Welcome! Tap below to open the customer order form and submit a fish order.</p>
-    <a class="open" href="https://script.google.com/macros/s/AKfycbywDmm3GE43_-6B1FZGVL3X5_Upod-7N0n-ubz2bCzGDbb0GuC713xenvdHPaPjMguuzg/exec" target="_blank" rel="noopener">Open Customer Order Form</a>
-    <button class="install" id="installButton" type="button">Install Fish Business Orders</button>
-    <p class="help">The order form opens securely through Google Apps Script. An internet connection is required to place an order.</p>
-    <footer>Fish Business · Customer Orders</footer>
+  <header>
+    <div>
+      <div class="brand">🐟 Fish Business</div>
+      <div class="tagline">Fresh Fish · Easy Ordering</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <h1>Welcome!</h1>
+      <p>
+        Place your fish order conveniently using our online
+        ordering form. Complete your details below.
+      </p>
+    </section>
+
+    <section class="form-card">
+      <div class="form-heading">Customer Order Form</div>
+
+      <iframe
+        src="https://script.google.com/macros/s/AKfycbywDmm3GE43_-6B1FZGVL3X5_Upod-7N0n-ubz2bCzGDbb0GuC713xenvdHPaPjMguuzg/exec"
+        title="Fish Business Customer Order Form"
+        loading="lazy"
+        allow="clipboard-write">
+      </iframe>
+    </section>
   </main>
+
+  <footer>
+    Fish Business Orders · Thank you for your order!
+  </footer>
+
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(err => console.error('Service worker registration failed:', err)));
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+          .catch(error => console.error(error));
+      });
     }
-    let installPrompt;
-    const installButton = document.getElementById('installButton');
-    window.addEventListener('beforeinstallprompt', event => {
-      event.preventDefault(); installPrompt = event; installButton.style.display = 'block';
-    });
-    installButton.addEventListener('click', async () => {
-      if (!installPrompt) return;
-      installPrompt.prompt(); await installPrompt.userChoice; installPrompt = null; installButton.style.display = 'none';
-    });
-    window.addEventListener('appinstalled', () => installButton.style.display = 'none');
   </script>
 </body>
 </html>
